@@ -88,14 +88,8 @@
                 <mxCell id="45" value="phone_number" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="36" vertex="1">
                     <mxGeometry y="176" width="160" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="67" value="user_id" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="36" vertex="1">
+                <mxCell id="67" value="history" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="36" vertex="1">
                     <mxGeometry y="206" width="160" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="60" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="19" edge="1" target="42">
-                    <mxGeometry width="100" height="100" relative="1" as="geometry">
-                        <mxPoint x="364" y="720" as="sourcePoint"/>
-                        <mxPoint x="520" y="750" as="targetPoint"/>
-                    </mxGeometry>
                 </mxCell>
                 <mxCell id="61" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="2" target="70" edge="1">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
@@ -110,10 +104,10 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="64" value="has_many :Items&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;has_many :histories&lt;br&gt;&lt;/font&gt;&lt;div&gt;has_one :address&lt;/div&gt;&lt;/div&gt;" style="shape=note;size=20;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="64" value="has_many :Items&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;has_many :histories&lt;/font&gt;&lt;/div&gt;" style="shape=note;size=20;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="100" y="860" width="160" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="65" value="&lt;div&gt;belongs_to :user&lt;/div&gt;&lt;div&gt;has_many :histories&lt;/div&gt;" style="shape=note;size=20;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="65" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;belongs_to :history&lt;/span&gt;&lt;/div&gt;" style="shape=note;size=20;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="520" y="830" width="160" height="100" as="geometry"/>
                 </mxCell>
                 <mxCell id="66" value="&lt;div&gt;belongs_to :user&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;has_one :history&lt;/span&gt;&lt;/div&gt;" style="shape=note;size=20;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -142,21 +136,13 @@
                         <mxPoint x="520" y="160" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="78" value="&lt;div&gt;belongs_to :user&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;belongs_to :item&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;belongs_to :address&lt;/span&gt;&lt;/div&gt;" style="shape=note;size=20;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="78" value="&lt;div&gt;belongs_to :user&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;belongs_to :item&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;has_one :address&lt;/span&gt;&lt;/div&gt;" style="shape=note;size=20;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="520" width="160" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="80" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.111;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="36" target="69">
+                <mxCell id="81" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;entryX=1.005;entryY=0.052;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="36">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
-                        <mxPoint x="690" y="600" as="sourcePoint"/>
-                        <mxPoint x="760" y="160" as="targetPoint"/>
-                        <Array as="points">
-                            <mxPoint x="690" y="630"/>
-                            <mxPoint x="770" y="519"/>
-                            <mxPoint x="1100" y="319"/>
-                            <mxPoint x="1030" y="379"/>
-                            <mxPoint x="750" y="359"/>
-                            <mxPoint x="760" y="549"/>
-                        </Array>
+                        <mxPoint x="681" y="129" as="sourcePoint"/>
+                        <mxPoint x="668.9199999999998" y="596.7440000000001" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
             </root>

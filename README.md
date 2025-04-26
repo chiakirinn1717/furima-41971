@@ -42,7 +42,6 @@ Things you may want to cover:
 
 - has_many :items 
 - has_many :histories
-- has_one :address
 
 ## itemsテーブル
 
@@ -77,18 +76,17 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :user
-- has_many :histories
+- belongs_to :history
 
 ## historiesテーブル
 
 |Column      |Type      |Options                       |
 |------------|----------|------------------------------|
-|user        |string    |null: false, foreign_key: true|
-|item        |string    |null: false, foreign_key: true|
+|user        |references|null: false, foreign_key: true|
+|item        |references|null: false, foreign_key: true|
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :address
+- has_one :address
