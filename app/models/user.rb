@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :nickname, presence: :true
   validates :sei, presence: true, format: { without: /[\uFF65-\uFF9F]/, message: "には半角カナを含めないでください" }
   validates :mei, presence: true, format: { without: /[\uFF65-\uFF9F]/, message: "には半角カナを含めないでください" }
-  with_options presence: true, format: {with: /\A[ァ-ヶ]+\z/} do
+  with_options presence: true, format: {with: /\A[ァ-ヶー]+\z/} do
     validates :sei_kana, presence: :true
     validates :mei_kana, presence: :true
   end
