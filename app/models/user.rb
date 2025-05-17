@@ -1,10 +1,10 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
+
+  has_many :items 
 
   validates :nickname, presence: :true
   validates :sei, presence: true, format: { without: /[\uFF65-\uFF9F]/, message: 'には半角カナを含めないでください' }
