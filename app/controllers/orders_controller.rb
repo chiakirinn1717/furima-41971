@@ -4,11 +4,12 @@ class OrdersController < ApplicationController
     before_action :sold_item, only:[:index]
 
     def index
-        if @history != nil
+        if @history.present?
             redirect_to "/"
         elsif current_user.id == @item.user_id
             redirect_to "/"
         else
+            gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
             @address_history = AddressHistory.new
         end
     end
@@ -20,6 +21,7 @@ class OrdersController < ApplicationController
             @address_history.save
             redirect_to root_path
         else
+            gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
             render :index, status: :unprocessable_entity
         end
     end
@@ -39,7 +41,7 @@ class OrdersController < ApplicationController
     end
 
     def pay_item
-        Payjp.api_key = "sk_test_8cc3a8ff9e8a4704fabd5af8"  # 自身のPAY.JPテスト秘密鍵を記述しましょう
+        Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
         Payjp::Charge.create(
             amount: @item.price,  # 商品の値段
             card: address_params[:token],    # カードトークン
