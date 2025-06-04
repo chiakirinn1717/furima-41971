@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
   before_action :item_find, only:[:show, :edit, :update, :destroy]
+  before_action :sold_item, only:[:edit]
 
   def index
     @items = Item.all.order("created_at DESC")
@@ -23,7 +24,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    unless current_user.id == @item.user_id
+    if @history.present?
+      redirect_to "/"
+    elsif current_user.id != @item.user_id
       redirect_to "/"
     end
   end
@@ -48,6 +51,10 @@ class ItemsController < ApplicationController
   def item_find
     @item = Item.find(params[:id])
   end
+
+    def sold_item
+      @history = History.where(item_id: @item.id)
+    end
 
   def item_params
     params.require(:item).permit(:image, :title, :description, :item_category_id, :item_condition_id, :delivery_fee_id,

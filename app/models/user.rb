@@ -5,6 +5,7 @@ class User < ApplicationRecord
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
 
   has_many :items
+  has_many :histories
 
   validates :nickname, presence: :true
   validates :sei, presence: true, format: { without: /[\uFF65-\uFF9F]/, message: 'には半角カナを含めないでください' }
