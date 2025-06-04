@@ -58,6 +58,26 @@ RSpec.describe AddressHistory, type: :model do
         @address_history.valid?
         expect(@address_history.errors.full_messages).to include("Phone number is not a number")
       end
+      it '電話番号が12桁以上では登録できない' do
+        @address_history.phone_number = '123456789012'
+        @address_history.valid?
+        expect(@address_history.errors.full_messages).to include("Phone number is too short")
+      end
+      it 'user_idが空では登録できない' do
+        @address_history.user_id = ''
+        @address_history.valid?
+        expect(@address_history.errors.full_messages).to include("User can't be blank")
+      end
+      it 'item_idが空では登録できない' do
+        @address_history.item_id = ''
+        @address_history.valid?
+        expect(@address_history.errors.full_messages).to include("Item can't be blank")
+      end
+      it 'tokenが空では登録できない' do
+        @address_history.token = ''
+        @address_history.valid?
+        expect(@address_history.errors.full_messages).to include("Token can't be blank")
+      end
     end
   end
 end

@@ -7,7 +7,7 @@ class AddressHistory
         validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
         validates :city
         validates :street
-        validates :phone_number, numericality: {only_integer: true}, format: { with: /\A\d{10}\z/, message:"is too short" }
+        validates :phone_number, numericality: {only_integer: true}, format: { with: /\A\d{10,11}\z/, message:"is too short" }
         validates :token
         validates :user_id
         validates :item_id
