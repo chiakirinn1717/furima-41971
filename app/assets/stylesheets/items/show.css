@@ -82,6 +82,7 @@
 .detail-table {
   margin-bottom: 30px;
   width: 100%;
+  border-spacing: 0;
 }
 
 .detail-item {
