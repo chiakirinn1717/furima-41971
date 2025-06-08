@@ -57,6 +57,7 @@
 .lists-left {
   display: flex;
   min-width: 200px;
+  list-style: none;
 
 }
 
